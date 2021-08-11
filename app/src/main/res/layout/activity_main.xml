@@ -47,7 +47,8 @@
         app:layout_constraintStart_toEndOf="@id/txtWeight"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="0.4"/>
+        app:layout_constraintHorizontal_bias="0.4"
+        android:inputType="numberDecimal"/>
     <TextView
         android:id="@+id/txtHeight"
         android:layout_width="wrap_content"
@@ -68,7 +69,8 @@
         app:layout_constraintStart_toEndOf="@id/txtWeight"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="0.4"/>
+        app:layout_constraintHorizontal_bias="0.4"
+        android:inputType="numberDecimal"/>
     <Button
         android:id="@+id/btnCalculate"
         android:text="@string/Calculate"
@@ -103,4 +105,5 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintVertical_bias="0.1"
         app:layout_constraintHorizontal_bias="0.337"/>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

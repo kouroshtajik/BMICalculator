@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -20,21 +21,34 @@ public class MainActivity extends AppCompatActivity {
         Button btnCalculate = findViewById(R.id.btnCalculate);
         TextView txtShowResult = findViewById(R.id.txtShowResult);
 
+
         //Calculate Methods...
 
         btnCalculate.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
+            public void onClick(View v) {
                 String weight = edtWeight.getText().toString();
                 String height = edtHeight.getText().toString();
-                double weightValue = Double.parseDouble(weight);
-                double heightValue = Double.parseDouble(height);
+                if (weight.isEmpty() & height.isEmpty()) {
+                    Toast.makeText(MainActivity.this, "Weight And Height Values Are Empty", Toast.LENGTH_SHORT).show();
+                }else if(weight.isEmpty()) {
+                    Toast.makeText(MainActivity.this, "Weight Value is Empty", Toast.LENGTH_SHORT).show();
+                }else if(height.isEmpty()) {
+                    Toast.makeText(MainActivity.this, "Height Value is Empty", Toast.LENGTH_SHORT).show();
+                }else {
+                    double weightValue = Double.parseDouble(weight);
+                    double heightValue = Double.parseDouble(height);
 
-                Double bmi = weightValue/heightValue;
-                String result = bmi.toString();
-                txtShowResult.setText(result);
+                    Double bmi = weightValue/(heightValue * heightValue);
+                    String result = bmi.toString();
+                    txtShowResult.setText(result);
+
+                }
+
             }
         });
+
+
 
     }
 }
