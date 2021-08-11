@@ -4,4 +4,6 @@
     <string name="introduction">Please Enter Your Weight(Kg) and Height(Meter)</string>
     <string name="weight">Weight (Kg)</string>
     <string name="Height">Height (Meter)</string>
+    <string name="Calculate">Calculate!</string>
+    <string name="Result">Result :</string>
 </resources>

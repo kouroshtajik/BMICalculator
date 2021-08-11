@@ -3,6 +3,11 @@ package com.kouroshtj.bmicalculator;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.text.Editable;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -10,5 +15,26 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        EditText edtWeight = findViewById(R.id.edtWeight);
+        EditText edtHeight = findViewById(R.id.edtHeight);
+        Button btnCalculate = findViewById(R.id.btnCalculate);
+        TextView txtShowResult = findViewById(R.id.txtShowResult);
+
+        //Calculate Methods...
+
+        btnCalculate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String weight = edtWeight.getText().toString();
+                String height = edtHeight.getText().toString();
+                double weightValue = Double.parseDouble(weight);
+                double heightValue = Double.parseDouble(height);
+
+                Double bmi = weightValue/heightValue;
+                String result = bmi.toString();
+                txtShowResult.setText(result);
+            }
+        });
+
     }
 }
