@@ -27,6 +27,7 @@ public class MainActivity extends AppCompatActivity {
         btnCalculate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                txtShowResult.setText("");
                 String weight = edtWeight.getText().toString();
                 String height = edtHeight.getText().toString();
                 if (weight.isEmpty() & height.isEmpty()) {
@@ -40,8 +41,24 @@ public class MainActivity extends AppCompatActivity {
                     double heightValue = Double.parseDouble(height);
 
                     Double bmi = weightValue/(heightValue * heightValue);
-                    String result = bmi.toString();
-                    txtShowResult.setText(result);
+                    if (bmi < 18.5) {
+                        String underweight = getResources().getString(R.string.underweight);
+                        String result = bmi.toString();
+                        txtShowResult.setText("Your BMI is :   " + bmi + "\n\n" + underweight );
+                    }else  if (bmi > 18.4 & bmi < 25) {
+                        String normal = getResources().getString(R.string.normal);
+                        String result = bmi.toString();
+                        txtShowResult.setText("Your BMI is :   " + bmi + "\n\n" + normal );
+                    }else if (bmi > 24.9 & bmi < 29.9) {
+                        String overweight = getResources().getString(R.string.overweight);
+                        String result = bmi.toString();
+                        txtShowResult.setText("Your BMI is :   " + bmi + "\n\n" + overweight );
+                    }else {
+                        String obese = getResources().getString(R.string.obese);
+                        String result = bmi.toString();
+                        txtShowResult.setText("Your BMI is :   " + bmi + "\n\n" + obese );
+                    }
+
 
                 }
 
